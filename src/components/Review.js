@@ -2,10 +2,10 @@ import React from "react";
 
 const Review = () => {
   return (
-    <div class="review">
+    <div className="review">
       <h3>Lorem ipsum dolor sit amet.</h3>
       <h1>Lorem ipsum dolor sit amet.</h1>
-      <div class="review__three">
+      <div className="review__three">
         <ReviewCard />
         <ReviewCard />
         <ReviewCard />
@@ -18,8 +18,8 @@ export default Review;
 
 const ReviewCard = () => {
   return (
-    <div class="review__card shadow-sm">
-      <div class="review__head">
+    <div className="review__card shadow-sm">
+      <div className="review__head">
         <img src="./img/rev2.jpg" alt="" />
       </div>
       <h2>ipsum dolor</h2>

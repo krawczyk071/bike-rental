@@ -3,10 +3,10 @@ import Card from "./Card";
 
 const Rent = () => {
   return (
-    <div class="rent">
+    <div className="rent">
       <h3>Lorem ipsum dolor sit amet.</h3>
       <h1>Lorem ipsum dolor sit amet.</h1>
-      <div class="rent__cards">
+      <div className="rent__cards">
         <Card />
         <Card />
         <Card />

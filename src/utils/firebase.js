@@ -24,19 +24,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const colRef = collection(db, "allbikes");
 // Get all documents in a collectio
 
+//All
 export async function getFire() {
-  const querySnapshot = await getDocs(collection(db, "bikes1"));
-  // querySnapshot.forEach((doc) => {
-  //   // doc.data() is never undefined for query doc snapshots
-  //   console.log(doc.id, " => ", doc.data());
-  // });
+  const querySnapshot = await getDocs(colRef);
   const dataArr = querySnapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
   }));
-  console.log(dataArr);
+  // console.log(dataArr);
+
   return dataArr;
 }
 
@@ -51,8 +50,8 @@ export async function getOne(id) {
 }
 
 // Query
-export async function getHostVans() {
-  const q = query(collection(db, "bikes1"), where("hostId", "==", "123"));
+export async function getSelected() {
+  const q = query(colRef, where("price.current_retail", ">", 300));
   const querySnapshot = await getDocs(q);
   const dataArr = querySnapshot.docs.map((doc) => ({
     ...doc.data(),

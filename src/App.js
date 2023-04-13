@@ -6,14 +6,17 @@ import Navbar from "./components/Navbar";
 import Rent from "./components/Rent";
 import Review from "./components/Review";
 
-import { getFire } from "./utils/firebase";
+import { getFire, getSelected } from "./utils/firebase";
+// import { fin } from "./utils/api";
 
 function App() {
   getFire().then((res) => console.log(res));
+  getSelected().then((res) => console.log(res));
+
   return (
     <div className="App">
       <Navbar />
-      <section class="layout-lg">
+      <section className="layout-lg">
         <Hero />
         <How />
         <Rent />
