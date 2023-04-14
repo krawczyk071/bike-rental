@@ -10,6 +10,13 @@ import {
   where,
 } from "firebase/firestore/lite";
 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBQE4h5Xb4vhHkIdxA0HnM8YXD1X5pM5lY",
   authDomain: "vanlife-1af79.firebaseapp.com",
@@ -23,6 +30,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+//Auth init
+export const auth = getAuth();
 
 const colRef = collection(db, "allbikes");
 // Get all documents in a collectio
@@ -58,4 +67,78 @@ export async function getSelected() {
     id: doc.id,
   }));
   return dataArr;
+}
+
+// AUTH LOGIN
+// createUserWithEmailAndPassword:
+
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+// const auth = getAuth();
+// createUserWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     const user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // ..
+//   });
+
+// signInWithEmailAndPassword
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+// const auth = getAuth();
+// signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     const user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//   });
+
+// signOut:
+//   import { getAuth, signOut } from "firebase/auth";
+
+// const auth = getAuth();
+// signOut(auth).then(() => {
+//   // Sign-out successful.
+// }).catch((error) => {
+//   // An error happened.
+// });
+
+export async function fbLogin(user, pwd) {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, user, pwd);
+    console.log(userCredential);
+    return userCredential.user;
+  } catch (error) {
+    console.log("moj", error);
+  }
+}
+export async function fbSignup(user, pwd) {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      user,
+      pwd
+    );
+    console.log(userCredential);
+    return userCredential.user;
+  } catch (error) {
+    console.log(error);
+  }
+}
+export async function fbLogout() {
+  try {
+    await signOut(auth);
+    console.log("Logged out");
+  } catch (error) {
+    console.log(error);
+  }
 }
