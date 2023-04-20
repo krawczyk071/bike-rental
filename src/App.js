@@ -1,5 +1,7 @@
 import About from "./components/About";
+import Bike from "./components/Bike";
 import Footer from "./components/Footer";
+import Help from "./components/Help";
 import Hero from "./components/Hero";
 import How from "./components/How";
 import Login from "./components/Login";
@@ -9,13 +11,9 @@ import Review from "./components/Review";
 import Signup from "./components/Signup";
 import UserStatus from "./components/UserStatus";
 
-import { getFire, getSelected } from "./utils/firebase";
 // import { fin } from "./utils/api";
 
 function App() {
-  getFire().then((res) => console.log(res));
-  getSelected().then((res) => console.log(res));
-
   return (
     <div className="App">
       <Navbar />
@@ -26,11 +24,12 @@ function App() {
         <About />
         <Review />
       </section>
-      {}
       <Footer />
       <Signup />
       <Login />
       <UserStatus />
+      <Bike />
+      {/* <Help /> */}
     </div>
   );
 }

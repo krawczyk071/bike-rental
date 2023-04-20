@@ -1,5 +1,13 @@
 import React from "react";
 
+const handleClickScroll = (elementId) => {
+  const element = document.getElementById(elementId);
+  console.log("el", element);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const Navbar = () => {
   return (
     <div className="header">
@@ -14,7 +22,12 @@ const Navbar = () => {
           <li className="navbar__item hov-animate">Ride</li>
           <li className="navbar__item">Services</li>
           <li className="navbar__item">About</li>
-          <li className="navbar__item">Reviews</li>
+          <li
+            className="navbar__item"
+            onClick={() => handleClickScroll("reviews")}
+          >
+            Reviews
+          </li>
         </ul>
         <button className="btn btn__primary shadow-sm">Push</button>
       </nav>
