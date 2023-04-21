@@ -6,11 +6,11 @@ const Hero = () => {
       <div className="hero">
         <div className="hero__text">
           <h1>
-            Looking to <span>rent</span> a bike
+            Looking to <span>rent</span> a bike?
           </h1>
           <h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
-            molestias.
+            Rent and explore the world around you, while reducing your carbon
+            footprint and staying active.
           </h2>
           <button className="btn hero__btn">Join free</button>
         </div>
