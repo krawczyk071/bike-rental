@@ -2,12 +2,12 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="about">
+    <div className="about" id="about">
       <h3>ABOUT US.</h3>
       <h1>Discover Our Convenient Bike Rental Service</h1>
       <div className="about_two">
         <div className="about__photo">
-          <img src="./img/about.png" alt="" />
+          <img src="./img/bk1.png" alt="" />
         </div>
         <div className="about__text">
           <h3>Welcome to our bike rental service!</h3>

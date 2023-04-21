@@ -2,7 +2,7 @@ import React from "react";
 
 const How = () => {
   return (
-    <div className="how">
+    <div className="how" id="services">
       <h3>Renting a bike with us is easy and hassle-free! </h3>
       <h1>Our process is simple and convenient.</h1>
       <div className="how__three">

@@ -21,7 +21,7 @@ const ReviewCard = ({ data }) => {
   return (
     <div className="review__card shadow-sm">
       <div className="review__head">
-        <img src="./img/rev2.jpg" alt="" />
+        <img src={data.img} alt="" />
       </div>
       <h2>{data.name}</h2>
       <p>{data.text}</p>

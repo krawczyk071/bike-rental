@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const handleClickScroll = (elementId) => {
   const element = document.getElementById(elementId);
@@ -17,11 +18,26 @@ const Navbar = () => {
         </div>
         <ul className="navbar__list">
           <li className="navbar__item hov-animate">
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
-          <li className="navbar__item hov-animate">Ride</li>
-          <li className="navbar__item">Services</li>
-          <li className="navbar__item">About</li>
+          <li
+            className="navbar__item hov-animate"
+            onClick={() => handleClickScroll("ride")}
+          >
+            Ride
+          </li>
+          <li
+            className="navbar__item"
+            onClick={() => handleClickScroll("services")}
+          >
+            Services
+          </li>
+          <li
+            className="navbar__item"
+            onClick={() => handleClickScroll("about")}
+          >
+            About
+          </li>
           <li
             className="navbar__item"
             onClick={() => handleClickScroll("reviews")}

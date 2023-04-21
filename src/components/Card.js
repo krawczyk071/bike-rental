@@ -1,4 +1,7 @@
 import React from "react";
+import { convertUnicode, formatPrice } from "../utils/helper";
+import { decode } from "html-entities";
+import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
   const img = item.images[0] + "?wid=200";
@@ -9,10 +12,16 @@ const Card = ({ item }) => {
       <div className="rent__photo">
         <img src={img} alt="" />
       </div>
-      <p className="rent__badge">Lorem, ipsum.</p>
-      <h2>{item.title}</h2>
+      <p className="rent__badge">{item.filter.subtype}</p>
+      <h2>{decode(item.title)}</h2>
       <p className="rent__text">{tags}</p>
-      <button className="btn btn__primary">Select</button>
+      <p className="rent__text">
+        {formatPrice(Number(item.price) * 100 || 45600)}
+      </p>
+
+      <Link to={`/bike/${item.tcin}`}>
+        <button className="btn btn__primary">Select</button>
+      </Link>
     </div>
   );
 };
