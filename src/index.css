@@ -327,6 +327,12 @@ body {
   justify-content: space-between;
   height: 70px;
   padding: 0 2rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  background: var(--bg-light);
 }
 .navbar__logo {
   background: var(--bg-light);
@@ -346,7 +352,7 @@ body {
   text-decoration: none;
 }
 .navbar__item a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .btn__primary {
   background: var(--accent);
@@ -676,4 +682,26 @@ p {
 }
 .bike__tags {
   margin-bottom: 1rem;
+}
+
+.top {
+  position: relative;
+}
+.top__btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 20;
+
+  font-size: 2rem;
+  background-color: var(--accent);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

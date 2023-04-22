@@ -1,13 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const handleClickScroll = (elementId) => {
-  const element = document.getElementById(elementId);
-  console.log("el", element);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+import { HashLink, NavHashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   return (
@@ -18,31 +11,29 @@ const Navbar = () => {
         </div>
         <ul className="navbar__list">
           <li className="navbar__item hov-animate">
-            <Link to="/">Home</Link>
+            <NavHashLink smooth to="/">
+              Home
+            </NavHashLink>
           </li>
-          <li
-            className="navbar__item hov-animate"
-            onClick={() => handleClickScroll("ride")}
-          >
-            Ride
+          <li className="navbar__item hov-animate">
+            <NavHashLink smooth to="/#ride">
+              Ride
+            </NavHashLink>
           </li>
-          <li
-            className="navbar__item"
-            onClick={() => handleClickScroll("services")}
-          >
-            Services
+          <li className="navbar__item hov-animate">
+            <NavHashLink smooth to="/#services">
+              Services
+            </NavHashLink>
           </li>
-          <li
-            className="navbar__item"
-            onClick={() => handleClickScroll("about")}
-          >
-            About
+          <li className="navbar__item hov-animate">
+            <NavHashLink smooth to="/#about">
+              About
+            </NavHashLink>
           </li>
-          <li
-            className="navbar__item"
-            onClick={() => handleClickScroll("reviews")}
-          >
-            Reviews
+          <li className="navbar__item hov-animate">
+            <NavHashLink smooth to="/#reviews">
+              Reviews
+            </NavHashLink>
           </li>
         </ul>
         <button className="btn btn__primary shadow-sm">Push</button>
