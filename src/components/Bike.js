@@ -3,9 +3,9 @@ import { allFilter } from "../utils/data";
 import { decode } from "html-entities";
 import { formatPrice, starRating } from "../utils/helper";
 
-const Bike = ({ id }) => {
-  const one = allFilter.find((a) => a.tcin == id);
-  console.log(one);
+const Bike = ({ bike: one }) => {
+  // const one = allFilter.find((a) => a.tcin == id);
+  // console.log(one);
   const [imgFirst, ...imgRest] = one.images;
   const tags = Object.entries(one.filter).map((a) => <span>{a[1]} </span>);
   //    Array.from(one.filter).map((a) => <span>{afterAll}</span>);

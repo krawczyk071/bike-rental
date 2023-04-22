@@ -36,7 +36,9 @@ const Navbar = () => {
             </NavHashLink>
           </li>
         </ul>
-        <button className="btn btn__primary shadow-sm">Push</button>
+        <Link to="/user">
+          <button className="btn btn__primary shadow-sm">User / Admin</button>
+        </Link>
       </nav>
     </div>
   );

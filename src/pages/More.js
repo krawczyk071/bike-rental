@@ -1,12 +1,14 @@
 import React from "react";
 import Bike from "../components/Bike";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 
 const More = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
+  const bike = useOutletContext();
+
   return (
     <section className="layout-lg">
-      <Bike id={id} />
+      <Bike bike={bike} />
     </section>
   );
 };

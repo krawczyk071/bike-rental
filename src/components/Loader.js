@@ -1,11 +1,11 @@
 import React from "react";
 
-const Order = () => {
+const Loader = () => {
   return (
     <div className="order">
-      <h2>Thank you for your order</h2>
+      <div className="loader"></div>
     </div>
   );
 };
 
-export default Order;
+export default Loader;

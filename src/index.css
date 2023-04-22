@@ -321,6 +321,20 @@ body {
   color: var(--text1);
   background: var(--bg-light);
 }
+#root {
+  /* height: 100vh; */
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.order {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -335,7 +349,7 @@ body {
   background: var(--bg-light);
 }
 .navbar__logo {
-  background: var(--bg-light);
+  /* background: var(--bg-light); */
   font-size: 2rem;
 }
 .navbar__list {
@@ -538,6 +552,10 @@ h3 {
   margin: 0.5rem 0;
   border-radius: var(--radius1);
 }
+.rent__filter {
+  display: flex;
+  gap: 5px;
+}
 .rent__card p {
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
@@ -704,4 +722,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.user-nav {
 }

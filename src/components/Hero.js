@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -26,7 +27,9 @@ const Hero = () => {
           <input id="b" type="date" className="ipt" />
           <label htmlFor="c">Return Date:</label>
           <input id="c" type="date" className="ipt" />
-          <button className="btn btn__primary">Submit</button>
+          <Link to="/order">
+            <button className="btn btn__primary">Submit</button>
+          </Link>
         </div>
       </div>
     </div>

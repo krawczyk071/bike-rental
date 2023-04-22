@@ -18,13 +18,12 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBQE4h5Xb4vhHkIdxA0HnM8YXD1X5pM5lY",
-  authDomain: "vanlife-1af79.firebaseapp.com",
-  projectId: "vanlife-1af79",
-  storageBucket: "vanlife-1af79.appspot.com",
-  messagingSenderId: "896927740949",
-  appId: "1:896927740949:web:3caf24b8aa9bb10dc38a1c",
-  measurementId: "G-5PF9KZDYP8",
+  apiKey: "AIzaSyDPQU3apGzS-WESFtzKRG_NLOP4IomNknQ",
+  authDomain: "bikerental-a6976.firebaseapp.com",
+  projectId: "bikerental-a6976",
+  storageBucket: "bikerental-a6976.appspot.com",
+  messagingSenderId: "27709411238",
+  appId: "1:27709411238:web:83372d6cfdd32e0a764967",
 };
 
 // Initialize Firebase
@@ -33,7 +32,7 @@ const db = getFirestore(app);
 //Auth init
 export const auth = getAuth();
 
-const colRef = collection(db, "allbikes");
+const colRef = collection(db, "main");
 // Get all documents in a collectio
 
 //All
@@ -50,7 +49,7 @@ export async function getFire() {
 
 // One
 export async function getOne(id) {
-  const docRef = doc(db, "bikes1", id);
+  const docRef = doc(db, "main", id);
   const oneSnapshot = await getDoc(docRef);
   return {
     ...oneSnapshot.data(),
