@@ -826,3 +826,7 @@ p {
   font-weight: bold;
   text-decoration: underline;
 }
+.alert {
+  color: red;
+  font-size: 0.7rem;
+}

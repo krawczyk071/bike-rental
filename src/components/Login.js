@@ -5,6 +5,8 @@ import UserStatus from "./UserStatus";
 
 const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
+  const [alert, setAlert] = useState("");
+
   const formChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => {
@@ -13,11 +15,17 @@ const Login = () => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    fbLogin(formData.user, formData.pwd);
+    fbLogin(formData.user, formData.pwd)
+      .then()
+      .catch((err) => {
+        setAlert(err.message);
+        // console.log(err);
+      });
   };
   return (
     <div>
       <h1>Login</h1>
+      {alert && <div className="alert">{alert}</div>}
       <form onSubmit={(e) => submitHandler(e)}>
         <input
           type="text"
