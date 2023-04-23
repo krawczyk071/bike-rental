@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { fbLogin } from "../utils/firebase";
 import { useState } from "react";
 import UserStatus from "./UserStatus";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
@@ -13,10 +14,15 @@ const Login = () => {
       return { ...prev, [name]: value };
     });
   };
+
+  const { dispatch } = useContext(AuthContext);
   const submitHandler = (e) => {
     e.preventDefault();
     fbLogin(formData.user, formData.pwd)
-      .then()
+      .then((userCredential) => {
+        const user = userCredential.user;
+        dispatch({ type: "LOGIN", payload: user });
+      })
       .catch((err) => {
         setAlert(err.message);
         // console.log(err);

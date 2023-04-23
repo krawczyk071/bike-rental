@@ -115,7 +115,7 @@ export async function fbLogin(user, pwd) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, user, pwd);
     console.log(userCredential);
-    return userCredential.user;
+    return userCredential;
   } catch (err) {
     console.log("moj", err);
     // throw new Error("Thrown from ");

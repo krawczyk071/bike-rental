@@ -9,40 +9,40 @@ import Signup from "./components/Signup";
 import Details from "./components/Details";
 import MorePhotos from "./components/MorePhotos";
 import Pricing from "./components/Pricing";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthContext, AuthProvider } from "./context/AuthContext";
+import { useContext } from "react";
 
 function App() {
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/user" />;
   };
   return (
     <div className="App">
       <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route exact path="/" element={<Homepage />} />
-              <Route path="/bike/:id" element={<Details />}>
-                <Route index element={<More />} />
-                <Route path="moreinfo" element={<MorePhotos />} />
-                <Route path="price" element={<Pricing />} />
-              </Route>
-              <Route
-                path="/order"
-                element={
-                  <RequireAuth>
-                    <Order />
-                  </RequireAuth>
-                }
-              />
-              <Route path="user" element={<UserLayout />}>
-                <Route index element={<Login />} />
-                <Route path="signup" element={<Signup />} />
-              </Route>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route exact path="/" element={<Homepage />} />
+            <Route path="/bike/:id" element={<Details />}>
+              <Route index element={<More />} />
+              <Route path="moreinfo" element={<MorePhotos />} />
+              <Route path="price" element={<Pricing />} />
             </Route>
-          </Routes>
-        </AuthProvider>
+            <Route
+              path="/order"
+              element={
+                <RequireAuth>
+                  <Order />
+                </RequireAuth>
+              }
+            />
+            <Route path="user" element={<UserLayout />}>
+              <Route index element={<Login />} />
+              <Route path="signup" element={<Signup />} />
+            </Route>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
