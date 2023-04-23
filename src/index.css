@@ -740,14 +740,71 @@ p {
 }
 .user-nav {
 }
+.details {
+  flex: 1;
+}
 .details__nav {
   text-align: center;
   margin-bottom: 1rem;
+  background: var(--accent);
+  padding: 0.5rem;
 }
-.details__nav a,
+/* .details__nav a,
 .details__nav a:visited,
 .details__nav a:hover {
-  color: var(--text1);
+  color: var(--text2);
   text-decoration: none;
   margin-right: 1rem;
+} */
+.details__nav__link,
+.details__nav__link:visited,
+.details__nav__link:hover {
+  color: var(--text2);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+.details__nav__link.active,
+.details__nav__link:visited.active,
+.details__nav__link:hover.active {
+  /* color: #3498db; */
+  font-weight: bold;
+  text-decoration: underline;
+}
+.details__nav__rent,
+.details__nav__rent:visited,
+.details__nav__rent:hover {
+  background: var(--primary);
+  padding: 0.5rem;
+  border-radius: var(--radius1);
+  text-decoration: none;
+}
+.pricing {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pricing__card {
+  display: flex;
+  flex-direction: column;
+  background: wheat;
+  width: 500px;
+  margin-bottom: 2rem;
+}
+.pricing__card h2 {
+  background: var(--primary);
+  text-align: center;
+}
+.pricing__card p {
+  font-size: 1rem;
+  padding: 0.2rem 1rem;
+}
+.pricing__card__num {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.pricing__card__txt {
+  text-align: left;
 }

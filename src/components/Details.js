@@ -3,6 +3,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { getOne } from "../utils/firebase";
 import Loader from "./Loader";
+import { Link } from "react-router-dom";
 
 const Details = () => {
   const { id } = useParams();
@@ -12,11 +13,11 @@ const Details = () => {
   }, []);
   // console.log(424, bike);
 
-  const activeStyles = {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    color: "#6f42c1",
-  };
+  // const activeStyles = {
+  //   fontWeight: "bold",
+  //   textDecoration: "underline",
+  //   color: "#6f42c1",
+  // };
 
   if (bike.loading) {
     return <Loader />;
@@ -27,17 +28,24 @@ const Details = () => {
         <NavLink
           to="."
           end
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          // style={({ isActive }) => (isActive ? activeStyles : null)}
+          className="details__nav__link"
         >
           General Info
         </NavLink>
         <NavLink
           to="moreinfo"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          // style={({ isActive }) => (isActive ? activeStyles : null)}
+          className="details__nav__link"
         >
           More details
         </NavLink>
-        <NavLink>Pricing</NavLink>
+        <NavLink to="price" className="details__nav__link">
+          Pricing
+        </NavLink>
+        <Link to="/order" className="details__nav__rent">
+          Rent this Bike
+        </Link>
       </nav>
       <Outlet context={bike.data} />
     </div>

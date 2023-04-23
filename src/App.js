@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Details from "./components/Details";
 import MorePhotos from "./components/MorePhotos";
+import Pricing from "./components/Pricing";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/bike/:id" element={<Details />}>
               <Route index element={<More />} />
               <Route path="moreinfo" element={<MorePhotos />} />
+              <Route path="price" element={<Pricing />} />
             </Route>
             <Route path="/order" element={<Order />} />
             <Route path="user" element={<UserLayout />}>

@@ -15,3 +15,16 @@ export const reviews = [
     text: "The staff was incredibly friendly and accommodating, and the bike was perfect for exploring the local bike trails. The rental process was smooth and hassle-free, and I appreciate the effort the company puts into maintaining their bikes. I would definitely rent from them again and recommend them to others.",
   },
 ];
+export const pricing = [
+  {
+    type: "normal",
+    basic: 100,
+    monthly: 30000,
+    daily: 1500,
+    info: "You can rent up to four bikes at the same time using one account. Special rates and conditions only apply to the first bike, additional bikes are charged at the standard rate. You can change your tariff in your customer account.",
+    extra:
+      "Returning bikes outside the flex zone or official stations as well as on private ground or in parks is not allowed. A service fee of min. 20€ will apply.",
+    discount:
+      "Low-season discounts (March, April, July, August, Oct 15 - Nov): 15% discounts on all low-season departures! ",
+  },
+];
