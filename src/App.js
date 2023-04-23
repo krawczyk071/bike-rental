@@ -19,7 +19,7 @@ function App() {
             <Route exact path="/" element={<Homepage />} />
             <Route path="/bike/:id" element={<Details />}>
               <Route index element={<More />} />
-              <Route path="morephotos" element={<MorePhotos />} />
+              <Route path="moreinfo" element={<MorePhotos />} />
             </Route>
             <Route path="/order" element={<Order />} />
             <Route path="user" element={<UserLayout />}>

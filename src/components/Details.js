@@ -15,31 +15,32 @@ const Details = () => {
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
-    color: "Red",
+    color: "#6f42c1",
   };
 
   if (bike.loading) {
     return <Loader />;
   }
   return (
-    <>
-      <nav className="detail-nav">
+    <div className="details layout-lg">
+      <nav className="details__nav">
         <NavLink
           to="."
           end
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
-          Detail {id}
+          General Info
         </NavLink>
         <NavLink
-          to="morephotos"
+          to="moreinfo"
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
-          morephotos
+          More details
         </NavLink>
+        <NavLink>Pricing</NavLink>
       </nav>
       <Outlet context={bike.data} />
-    </>
+    </div>
   );
 };
 

@@ -30,28 +30,30 @@ const Bike = ({ bike: one }) => {
         </h2>
       </div>
       <div className="bike__tags">{tags}</div>
-
-      {/* <div className="bike__soft">
-        <ul>
-          {one.bullets.map((b) => (
-            <li>{b}</li>
-          ))}
-        </ul>
-      </div> */}
       <div
         className="bike__desc"
         dangerouslySetInnerHTML={{ __html: one.downstream_description }}
       ></div>
+      {one.bullets && (
+        <div className="bike__soft">
+          <ul>
+            {one.bullets.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <br />
 
       <br />
-      <div className="bike__bull">
+      {/* <div className="bike__bull">
         <ul>
           {one.bullet_descriptions.map((b) => (
             <li dangerouslySetInnerHTML={{ __html: b }}></li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

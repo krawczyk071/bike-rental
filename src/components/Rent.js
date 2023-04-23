@@ -4,13 +4,13 @@ import { allFilter } from "../utils/data";
 import { getFire } from "../utils/firebase";
 import Loader from "./Loader";
 
-const types = [
+const types1 = [
   { value: "", display: "All" },
   { value: "Cruiser", display: "Cruiser" },
   { value: "Road", display: "Road" },
   { value: "Electric", display: "Electric" },
 ];
-const types1 = [
+const types2 = [
   "Tricycles",
   "Cruiser",
   "Hybrid",
@@ -21,14 +21,27 @@ const types1 = [
 
 const Rent = () => {
   const [filter, setFilter] = useState({ value: "", display: "All" });
+  const [types, setTypes] = useState(types1);
+  function handleActive(type) {
+    setTypes((prev) => {
+      return prev.map((p) => {
+        if (p.value === type.value) {
+          return { ...p, active: true };
+        } else {
+          return { ...p, active: false };
+        }
+      });
+    });
+    setFilter(type);
+  }
   const [allBikes, SetAllBikes] = useState({ data: [], loading: true });
+
   useEffect(() => {
     getFire().then((data) => SetAllBikes({ data, loading: false }));
   }, []);
   if (allBikes.loading) {
     return <Loader />;
   }
-  console.log(33, allBikes);
   return (
     <div className="rent" id="ride">
       <h3>Experience the city on two wheels with our bike rentals.</h3>
@@ -36,8 +49,14 @@ const Rent = () => {
       <div className="rent__filter">
         {types.map((t) => {
           return (
-            <div className="rent__badge" onClick={() => setFilter(t)}>
-              {t.display}
+            <div
+              className={`rent__filter__btn${
+                t.display === "Electric" ? " rent__filter__btn--special" : ""
+              }${t?.active ? " rent__filter__btn--active" : ""}`}
+              onClick={() => handleActive(t)}
+            >
+              {t.display}{" "}
+              {t.display === "Electric" && <i className="fa-solid fa-bolt"></i>}
             </div>
           );
         })}

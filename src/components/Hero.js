@@ -13,7 +13,9 @@ const Hero = () => {
             Rent and explore the world around you, while reducing your carbon
             footprint and staying active.
           </h2>
-          <button className="btn hero__btn">Join free</button>
+          <Link to="/user/signup">
+            <button className="btn hero__btn">Join free</button>
+          </Link>
         </div>
         <div className="hero__photo">
           <img src="./img/bk4.png" alt="heros" />

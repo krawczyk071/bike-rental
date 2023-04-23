@@ -305,7 +305,7 @@ select:focus + .focus {
   --secondary: #fffafa;
   --accent: #6f42c1;
   --text1: #301f40;
-  --text2: wheat;
+  --text2: #fffafa;
   --radius1: 7px;
 
   --success: gray;
@@ -552,6 +552,21 @@ h3 {
   margin: 0.5rem 0;
   border-radius: var(--radius1);
 }
+.rent__filter__btn {
+  padding: 0.3rem 1rem;
+  background: var(--primary);
+  margin: 0.5rem 0;
+  border-radius: var(--radius1);
+  cursor: pointer;
+}
+.rent__filter__btn--special {
+  background: var(--accent);
+  color: var(--text2);
+}
+.rent__filter__btn--active {
+  text-decoration: underline;
+}
+
 .rent__filter {
   display: flex;
   gap: 5px;
@@ -724,4 +739,15 @@ p {
   justify-content: center;
 }
 .user-nav {
+}
+.details__nav {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.details__nav a,
+.details__nav a:visited,
+.details__nav a:hover {
+  color: var(--text1);
+  text-decoration: none;
+  margin-right: 1rem;
 }
