@@ -11,6 +11,7 @@ import MorePhotos from "./components/MorePhotos";
 import Pricing from "./components/Pricing";
 import { AuthContext, AuthProvider } from "./context/AuthContext";
 import { useContext } from "react";
+import User from "./pages/User";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -41,6 +42,14 @@ function App() {
               <Route index element={<Login />} />
               <Route path="signup" element={<Signup />} />
             </Route>
+            <Route
+              path="dashboard"
+              element={
+                <RequireAuth>
+                  <User />
+                </RequireAuth>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

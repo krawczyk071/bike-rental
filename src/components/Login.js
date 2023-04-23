@@ -3,10 +3,13 @@ import { fbLogin } from "../utils/firebase";
 import { useState } from "react";
 import UserStatus from "./UserStatus";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
   const [alert, setAlert] = useState("");
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
 
   const formChange = (e) => {
     const { name, value } = e.target;
@@ -15,13 +18,13 @@ const Login = () => {
     });
   };
 
-  const { dispatch } = useContext(AuthContext);
   const submitHandler = (e) => {
     e.preventDefault();
     fbLogin(formData.user, formData.pwd)
       .then((userCredential) => {
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
+        navigate("/dashboard");
       })
       .catch((err) => {
         setAlert(err.message);

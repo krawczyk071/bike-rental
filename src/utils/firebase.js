@@ -8,6 +8,8 @@ import {
   getDoc,
   query,
   where,
+  setDoc,
+  updateDoc,
 } from "firebase/firestore/lite";
 
 import {
@@ -48,8 +50,8 @@ export async function getFire() {
 }
 
 // One
-export async function getOne(id) {
-  const docRef = doc(db, "main", id);
+export async function getOne(collection, id) {
+  const docRef = doc(db, collection, id);
   const oneSnapshot = await getDoc(docRef);
   return {
     ...oneSnapshot.data(),
@@ -68,49 +70,6 @@ export async function getSelected() {
   return dataArr;
 }
 
-// AUTH LOGIN
-// createUserWithEmailAndPassword:
-
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-// const auth = getAuth();
-// createUserWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // ..
-//   });
-
-// signInWithEmailAndPassword
-// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-// const auth = getAuth();
-// signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
-
-// signOut:
-//   import { getAuth, signOut } from "firebase/auth";
-
-// const auth = getAuth();
-// signOut(auth).then(() => {
-//   // Sign-out successful.
-// }).catch((error) => {
-//   // An error happened.
-// });
-
 export async function fbLogin(user, pwd) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, user, pwd);
@@ -122,6 +81,15 @@ export async function fbLogin(user, pwd) {
     throw err;
   }
 }
+export async function fbLogout() {
+  try {
+    await signOut(auth);
+    console.log("Logged out");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function fbSignup(user, pwd) {
   try {
     const userCredential = await createUserWithEmailAndPassword(
@@ -129,17 +97,26 @@ export async function fbSignup(user, pwd) {
       user,
       pwd
     );
-    console.log(userCredential);
+    // console.log(userCredential);
+
+    //ALSO write data to user table
+    await setDoc(doc(db, "users", userCredential.user.uid), {
+      bikes: [],
+      admin: false,
+    });
     return userCredential.user;
   } catch (error) {
-    console.log(error);
+    throw error;
+    // console.log(error);
   }
 }
-export async function fbLogout() {
+
+// EDIT FUNCTION
+export async function editBike(editedBike) {
   try {
-    await signOut(auth);
-    console.log("Logged out");
+    const bikeRef = doc(colRef, editedBike.tcin);
+    updateDoc(bikeRef, editedBike);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }

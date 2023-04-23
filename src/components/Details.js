@@ -9,7 +9,7 @@ const Details = () => {
   const { id } = useParams();
   const [bike, SetBike] = useState({ data: [], loading: true });
   useEffect(() => {
-    getOne(id).then((data) => SetBike({ data, loading: false }));
+    getOne("main", id).then((data) => SetBike({ data, loading: false }));
   }, []);
   // console.log(424, bike);
 
