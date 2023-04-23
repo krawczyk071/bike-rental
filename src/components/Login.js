@@ -1,6 +1,7 @@
 import React from "react";
 import { fbLogin } from "../utils/firebase";
 import { useState } from "react";
+import UserStatus from "./UserStatus";
 
 const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
@@ -34,6 +35,7 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+      <UserStatus />
     </div>
   );
 };

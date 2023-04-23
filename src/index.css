@@ -738,8 +738,6 @@ p {
   align-items: center;
   justify-content: center;
 }
-.user-nav {
-}
 .details {
   flex: 1;
 }
@@ -749,13 +747,6 @@ p {
   background: var(--accent);
   padding: 0.5rem;
 }
-/* .details__nav a,
-.details__nav a:visited,
-.details__nav a:hover {
-  color: var(--text2);
-  text-decoration: none;
-  margin-right: 1rem;
-} */
 .details__nav__link,
 .details__nav__link:visited,
 .details__nav__link:hover {
@@ -807,4 +798,31 @@ p {
 }
 .pricing__card__txt {
   text-align: left;
+}
+.user {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.user__nav {
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--accent);
+  padding: 0.5rem;
+  width: 500px;
+}
+.user__nav__link,
+.user__nav__link:visited,
+.user__nav__link:hover {
+  color: var(--text2);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+.user__nav__link.active,
+.user__nav__link:visited.active,
+.user__nav__link:hover.active {
+  font-weight: bold;
+  text-decoration: underline;
 }

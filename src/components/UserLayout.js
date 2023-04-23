@@ -1,16 +1,22 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 const UserLayout = () => {
   return (
     <>
-      <nav className="user-nav">
-        <Link to="/user">Dashboard</Link>
-        <Link to="/user/login">login</Link>
-        <Link to="/user/signup">signup</Link>
-      </nav>
-      <Outlet />
+      <div className="user">
+        <nav className="user__nav">
+          <NavLink className="user__nav__link" to="." end>
+            login
+          </NavLink>
+          <NavLink className="user__nav__link" to="signup">
+            signup
+          </NavLink>
+        </nav>
+        <Outlet />
+      </div>
     </>
   );
 };

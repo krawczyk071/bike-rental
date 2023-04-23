@@ -25,8 +25,7 @@ function App() {
             </Route>
             <Route path="/order" element={<Order />} />
             <Route path="user" element={<UserLayout />}>
-              <Route index element={<User />} />
-              <Route path="login" element={<Login />} />
+              <Route index element={<Login />} />
               <Route path="signup" element={<Signup />} />
             </Route>
           </Route>
