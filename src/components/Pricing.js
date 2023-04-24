@@ -1,9 +1,13 @@
 import React from "react";
 import { pricing } from "../utils/data2";
 import { formatPrice } from "../utils/helper";
+import { useOutletContext } from "react-router-dom";
 
 const Pricing = () => {
-  const price = pricing[0];
+  const bike = useOutletContext();
+
+  const price = pricing.find((p) => p.type === bike.pricecat) || pricing[0];
+
   return (
     <div className="pricing">
       <div className="pricing__card">

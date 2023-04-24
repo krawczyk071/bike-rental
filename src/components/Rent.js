@@ -63,6 +63,7 @@ const Rent = () => {
       </div>
       <div className="rent__cards">
         {allBikes.data
+          .filter((a) => a.status !== "removed")
           .filter((a) => a.filter.subtype.includes(filter.value))
           .map((a) => (
             <Card item={a} />

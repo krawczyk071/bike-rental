@@ -30,14 +30,7 @@ function App() {
               <Route path="moreinfo" element={<MorePhotos />} />
               <Route path="price" element={<Pricing />} />
             </Route>
-            <Route
-              path="/order"
-              element={
-                <RequireAuth>
-                  <Order />
-                </RequireAuth>
-              }
-            />
+            <Route path="/order" element={<Order />} />
             <Route path="user" element={<UserLayout />}>
               <Route index element={<Login />} />
               <Route path="signup" element={<Signup />} />

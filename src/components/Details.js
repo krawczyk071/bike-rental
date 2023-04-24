@@ -38,13 +38,6 @@ const Details = () => {
       state: { msg: `You've just rented bike : ${newBike.id}` },
     });
   }
-  // console.log(424, bike);
-
-  // const activeStyles = {
-  //   fontWeight: "bold",
-  //   textDecoration: "underline",
-  //   color: "#6f42c1",
-  // };
 
   if (bike.loading) {
     return <Loader />;
@@ -52,19 +45,10 @@ const Details = () => {
   return (
     <div className="details layout-lg">
       <nav className="details__nav">
-        <NavLink
-          to="."
-          end
-          // style={({ isActive }) => (isActive ? activeStyles : null)}
-          className="details__nav__link"
-        >
+        <NavLink to="." end className="details__nav__link">
           General Info
         </NavLink>
-        <NavLink
-          to="moreinfo"
-          // style={({ isActive }) => (isActive ? activeStyles : null)}
-          className="details__nav__link"
-        >
+        <NavLink to="moreinfo" className="details__nav__link">
           More details
         </NavLink>
         <NavLink to="price" className="details__nav__link">

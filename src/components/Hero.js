@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-wrapper">
       <div className="hero">
@@ -25,12 +28,14 @@ const Hero = () => {
         <div className="calendar__form shadow-sm">
           <label htmlFor="name">Get 10% off by leaving yor name:</label>
           <input id="name" type="text" className="ipt" />
-          <label htmlFor="email">and e-mail:</label>
+          <label htmlFor="email">and an e-mail:</label>
           <input id="email" type="text" className="ipt" />
           <button
             className="btn btn__primary"
             onClick={() => {
-              alert("Thank You!");
+              navigate("/order", {
+                state: { msg: `Wait for an email with your discount code :)` },
+              });
             }}
           >
             Submit

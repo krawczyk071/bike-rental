@@ -5,6 +5,7 @@ import { editBike, editUser, getFire, getOne } from "../utils/firebase";
 import EditCard from "../components/EditCard";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
+import Logout from "../components/Logout";
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
@@ -60,22 +61,24 @@ const Dashboard = () => {
   }
   return (
     <div className="dashboard layout-lg">
-      <h2>Access level: {userData.data.admin ? "admin" : "standard"}</h2>
+      <Logout admin={userData.data.admin} />
       {!allBikes.loading && !userData.loading && (
         // console.log(userData)
         <>
           <h2>Bikes rented: </h2>
           {userData.data.bikes.length ? (
-            userData.data.bikes.map((b) => {
-              return (
-                <div className="rentedcard">
-                  <Card item={b} />
-                  <button className="btn" onClick={() => handleReturn(b)}>
-                    {wait ? "Wait.." : "Return"}
-                  </button>
-                </div>
-              );
-            })
+            <div className="rented__cards">
+              {userData.data.bikes.map((b) => {
+                return (
+                  <div className="rented__card">
+                    <Card item={b} />
+                    <button className="btn" onClick={() => handleReturn(b)}>
+                      {wait ? "Wait.." : "Return"}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           ) : (
             <h2>No bikes currently rented.</h2>
           )}
@@ -97,7 +100,6 @@ const Dashboard = () => {
           </div>
         </>
       )}
-      <UserStatus />
     </div>
   );
 };

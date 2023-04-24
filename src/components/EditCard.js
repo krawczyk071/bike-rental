@@ -36,6 +36,7 @@ const EditCard = ({ bike, handleChange, handleEdit }) => {
             <option value="a">a - economic</option>
             <option value="b">b - standard</option>
             <option value="c">c - premium</option>
+            <option value="d">d - supreme</option>
           </select>
         </div>
         <label htmlFor="status">Bike status</label>
