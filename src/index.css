@@ -448,7 +448,7 @@ body {
   border-radius: var(--radius1);
 }
 .calendar__form .ipt {
-  width: 180px;
+  width: 280px;
 }
 .how {
   display: flex;

@@ -23,15 +23,18 @@ const Hero = () => {
       </div>
       <div className="calendar">
         <div className="calendar__form shadow-sm">
-          <label htmlFor="a">Location:</label>
-          <input id="a" type="text" className="ipt" />
-          <label htmlFor="b">Pickup date:</label>
-          <input id="b" type="date" className="ipt" />
-          <label htmlFor="c">Return Date:</label>
-          <input id="c" type="date" className="ipt" />
-          <Link to="/order">
-            <button className="btn btn__primary">Submit</button>
-          </Link>
+          <label htmlFor="name">Get 10% off by leaving yor name:</label>
+          <input id="name" type="text" className="ipt" />
+          <label htmlFor="email">and e-mail:</label>
+          <input id="email" type="text" className="ipt" />
+          <button
+            className="btn btn__primary"
+            onClick={() => {
+              alert("Thank You!");
+            }}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
