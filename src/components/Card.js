@@ -11,6 +11,7 @@ const Card = ({ item }) => {
     <div className="rent__card shadow-sm">
       <div className="rent__photo">
         <img src={img} alt="" />
+        {item?.status === "rented" && <div className="rent__msg">RENTED !</div>}
       </div>
       <p className="rent__badge">{item.filter.subtype}</p>
       <h2>{decode(item.title)}</h2>

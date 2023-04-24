@@ -541,6 +541,15 @@ h3 {
   height: 200px;
   width: 100%;
   border-radius: var(--radius1);
+  position: relative;
+}
+.rent__msg {
+  position: absolute;
+  inset: 0;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
 }
 .rent__photo img {
   width: 100%;
@@ -868,4 +877,11 @@ p {
 }
 .editcard__info h2 {
   font-size: 1rem;
+}
+.rentedcard {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

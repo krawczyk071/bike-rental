@@ -18,15 +18,25 @@ const Details = () => {
   const navigate = useNavigate();
   async function handleRent() {
     SetWait(true);
+    const oldUser = await getOne("users", currentUser.uid);
+    console.log(oldUser.bikes.length);
+    if (oldUser.bikes.length >= 2) {
+      return navigate("/order", {
+        state: {
+          msg: `Sorry cant rent the bike. Maximum nuber of bikes rented(2) exceeded.`,
+        },
+      });
+    }
     const newBike = { ...bike.data, status: "rented" };
     // SetBike({ data: newBike, loading: false });
-    const oldUser = await getOne("users", currentUser.uid);
     const newUser = { ...oldUser, bikes: [...oldUser.bikes, newBike] };
     //update firebase
     await editBike(newBike);
     await editUser(newUser);
     console.log(oldUser);
-    navigate("/order");
+    navigate("/order", {
+      state: { msg: `You've just rented bike : ${newBike.id}` },
+    });
   }
   // console.log(424, bike);
 
