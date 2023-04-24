@@ -11,7 +11,7 @@ import MorePhotos from "./components/MorePhotos";
 import Pricing from "./components/Pricing";
 import { AuthContext, AuthProvider } from "./context/AuthContext";
 import { useContext } from "react";
-import User from "./pages/User";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -46,7 +46,7 @@ function App() {
               path="dashboard"
               element={
                 <RequireAuth>
-                  <User />
+                  <Dashboard />
                 </RequireAuth>
               }
             />

@@ -17,10 +17,32 @@ export const reviews = [
 ];
 export const pricing = [
   {
-    type: "normal",
+    type: "a",
     basic: 100,
     monthly: 30000,
     daily: 1500,
+    info: "You can rent up to four bikes at the same time using one account. Special rates and conditions only apply to the first bike, additional bikes are charged at the standard rate. You can change your tariff in your customer account.",
+    extra:
+      "Returning bikes outside the flex zone or official stations as well as on private ground or in parks is not allowed. A service fee of min. 20€ will apply.",
+    discount:
+      "Low-season discounts (March, April, July, August, Oct 15 - Nov): 15% discounts on all low-season departures! ",
+  },
+  {
+    type: "b",
+    basic: 120,
+    monthly: 32000,
+    daily: 1520,
+    info: "You can rent up to four bikes at the same time using one account. Special rates and conditions only apply to the first bike, additional bikes are charged at the standard rate. You can change your tariff in your customer account.",
+    extra:
+      "Returning bikes outside the flex zone or official stations as well as on private ground or in parks is not allowed. A service fee of min. 20€ will apply.",
+    discount:
+      "Low-season discounts (March, April, July, August, Oct 15 - Nov): 15% discounts on all low-season departures! ",
+  },
+  {
+    type: "c",
+    basic: 150,
+    monthly: 35000,
+    daily: 1550,
     info: "You can rent up to four bikes at the same time using one account. Special rates and conditions only apply to the first bike, additional bikes are charged at the standard rate. You can change your tariff in your customer account.",
     extra:
       "Returning bikes outside the flex zone or official stations as well as on private ground or in parks is not allowed. A service fee of min. 20€ will apply.",

@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import UserStatus from "../components/UserStatus";
 import { AuthContext } from "../context/AuthContext";
 import { editBike, getFire, getOne } from "../utils/firebase";
-import Card from "../components/Card";
+import EditCard from "../components/EditCard";
 
-const User = () => {
+const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
   const uid = currentUser.uid;
   const [userData, setUserData] = useState("");
@@ -35,46 +35,40 @@ const User = () => {
   }
   function handleEdit(a) {
     editBike(a);
+    alert("Bike data updated");
   }
   return (
     <div className="dashboard layout-lg">
-      <h2>Access level:{userData.admin ? "admin" : "standard"}</h2>
-      <h2>Bikes rented:{userData.bikes}</h2>
+      <h2>Access level: {userData.admin ? "admin" : "standard"}</h2>
+      {!userData.admin && (
+        <>
+          <h2>Bikes rented: </h2>
+          {userData.bikes ? (
+            <h2> You have rented bike no: {userData.bikes.id}</h2>
+          ) : (
+            <h2>No bikes currently rented.</h2>
+          )}
+        </>
+      )}
 
       {!allBikes.loading && userData.admin && (
-        <div className="dashboard__cards">
-          {allBikes.data.map((a) => (
-            <div className="dashboard__edit">
-              <Card item={a} />
-              <input
-                type="text"
-                placeholder="price"
-                id="price"
-                value={a.price}
-                onChange={(e) => handleChange(e, a)}
+        <>
+          <h2>Manage Inventory:</h2>
+
+          <div className="dashboard__cards">
+            {allBikes.data.map((a) => (
+              <EditCard
+                bike={a}
+                handleChange={handleChange}
+                handleEdit={handleEdit}
               />
-              <input
-                type="text"
-                placeholder="pricecat"
-                id="pricecat"
-                value={a?.pricecat}
-                onChange={(e) => handleChange(e, a)}
-              />
-              <input
-                type="text"
-                placeholder="status"
-                id="status"
-                value={a.status}
-                onChange={(e) => handleChange(e, a)}
-              />
-              <button onClick={() => handleEdit(a)}>OK</button>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       )}
       <UserStatus />
     </div>
   );
 };
 
-export default User;
+export default Dashboard;

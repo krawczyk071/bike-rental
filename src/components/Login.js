@@ -9,7 +9,7 @@ const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
   const [alert, setAlert] = useState("");
   const navigate = useNavigate();
-  const { dispatch } = useContext(AuthContext);
+  const { currentUser, dispatch } = useContext(AuthContext);
 
   const formChange = (e) => {
     const { name, value } = e.target;
@@ -33,6 +33,7 @@ const Login = () => {
   };
   return (
     <div>
+      {currentUser && navigate("/dashboard")}
       <h1>Login</h1>
       {alert && <div className="alert">{alert}</div>}
       <form onSubmit={(e) => submitHandler(e)}>
