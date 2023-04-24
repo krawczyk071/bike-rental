@@ -764,6 +764,9 @@ p {
 .details__nav__rent,
 .details__nav__rent:visited,
 .details__nav__rent:hover {
+  display: inline;
+  cursor: pointer;
+
   background: var(--primary);
   padding: 0.5rem;
   border-radius: var(--radius1);

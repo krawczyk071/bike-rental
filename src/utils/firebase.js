@@ -120,3 +120,12 @@ export async function editBike(editedBike) {
     console.error(error);
   }
 }
+export async function editUser(editedUser) {
+  try {
+    const colRef = collection(db, "users");
+    const userRef = doc(colRef, editedUser.id);
+    updateDoc(userRef, editedUser);
+  } catch (error) {
+    console.error(error);
+  }
+}

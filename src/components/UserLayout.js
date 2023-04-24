@@ -1,9 +1,17 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const UserLayout = () => {
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    currentUser && navigate("/dashboard");
+  }, [currentUser]);
+
   return (
     <>
       <div className="user">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HashLink, NavHashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   return (

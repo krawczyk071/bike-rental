@@ -1,16 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { getOne } from "../utils/firebase";
+import { editBike, editUser, getOne } from "../utils/firebase";
 import Loader from "./Loader";
-import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Details = () => {
+  const { currentUser } = useContext(AuthContext);
+  const [wait, SetWait] = useState(false);
+
   const { id } = useParams();
   const [bike, SetBike] = useState({ data: [], loading: true });
   useEffect(() => {
     getOne("main", id).then((data) => SetBike({ data, loading: false }));
   }, []);
+
+  const navigate = useNavigate();
+  async function handleRent() {
+    SetWait(true);
+    const newBike = { ...bike.data, status: "rented" };
+    // SetBike({ data: newBike, loading: false });
+    const oldUser = await getOne("users", currentUser.uid);
+    const newUser = { ...oldUser, bikes: [...oldUser.bikes, newBike] };
+    //update firebase
+    await editBike(newBike);
+    await editUser(newUser);
+    console.log(oldUser);
+    navigate("/order");
+  }
   // console.log(424, bike);
 
   // const activeStyles = {
@@ -43,9 +60,13 @@ const Details = () => {
         <NavLink to="price" className="details__nav__link">
           Pricing
         </NavLink>
-        <Link to="/order" className="details__nav__rent">
-          Rent this Bike
-        </Link>
+        {bike.data.status === "ready" ? (
+          <div className="details__nav__rent" onClick={handleRent}>
+            {wait ? "Processing..." : "Rent this Bike"}
+          </div>
+        ) : (
+          <div className="details__nav__rent">Not available</div>
+        )}
       </nav>
       <Outlet context={bike.data} />
     </div>

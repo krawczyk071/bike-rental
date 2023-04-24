@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
   const [alert, setAlert] = useState("");
-  const navigate = useNavigate();
   const { currentUser, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const formChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +33,6 @@ const Login = () => {
   };
   return (
     <div>
-      {currentUser && navigate("/dashboard")}
       <h1>Login</h1>
       {alert && <div className="alert">{alert}</div>}
       <form onSubmit={(e) => submitHandler(e)}>
