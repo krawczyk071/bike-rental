@@ -9,14 +9,14 @@ const types1 = [
   { value: "Road", display: "Road" },
   { value: "Electric", display: "Electric" },
 ];
-const types2 = [
-  "Tricycles",
-  "Cruiser",
-  "Hybrid",
-  "Road",
-  "Mountain",
-  "Electric",
-];
+// const types2 = [
+//   "Tricycles",
+//   "Cruiser",
+//   "Hybrid",
+//   "Road",
+//   "Mountain",
+//   "Electric",
+// ];
 
 const Rent = () => {
   const [filter, setFilter] = useState({ value: "", display: "All" });
