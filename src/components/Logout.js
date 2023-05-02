@@ -18,7 +18,7 @@ const Logout = ({ admin }) => {
       })
       .catch((error) => console.log(error));
   };
-  console.log(currentUser);
+  // console.log(currentUser);
   return (
     <div className="logout">
       <p>{`Signed In as ${currentUser.email}`}</p>

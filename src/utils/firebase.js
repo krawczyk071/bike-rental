@@ -73,10 +73,10 @@ export async function getSelected() {
 export async function fbLogin(user, pwd) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, user, pwd);
-    console.log(userCredential);
+    // console.log(userCredential);
     return userCredential;
   } catch (err) {
-    console.log("moj", err);
+    // console.log("moj", err);
     // throw new Error("Thrown from ");
     throw err;
   }

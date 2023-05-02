@@ -13,7 +13,7 @@ const Details = () => {
   const [bike, SetBike] = useState({ data: [], loading: true });
   useEffect(() => {
     getOne("main", id).then((data) => SetBike({ data, loading: false }));
-  }, []);
+  }, [id]);
 
   const navigate = useNavigate();
   async function handleRent() {
@@ -23,7 +23,6 @@ const Details = () => {
     }
     SetWait(true);
     const oldUser = await getOne("users", currentUser.uid);
-    console.log(oldUser.bikes.length);
     if (oldUser.bikes.length >= 2) {
       return navigate("/order", {
         state: {
@@ -37,7 +36,6 @@ const Details = () => {
     //update firebase
     await editBike(newBike);
     await editUser(newUser);
-    console.log(oldUser);
     navigate("/order", {
       state: { msg: `You've just rented bike : ${newBike.id}` },
     });

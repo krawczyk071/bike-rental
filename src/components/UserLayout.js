@@ -5,12 +5,12 @@ import { AuthContext } from "../context/AuthContext";
 
 const UserLayout = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  // console.log(currentUser);
   const navigate = useNavigate();
 
   useEffect(() => {
     currentUser && navigate("/dashboard");
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   return (
     <>
