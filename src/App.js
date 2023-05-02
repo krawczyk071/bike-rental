@@ -9,7 +9,7 @@ import Signup from "./components/Signup";
 import Details from "./components/Details";
 import MorePhotos from "./components/MorePhotos";
 import Pricing from "./components/Pricing";
-import { AuthContext, AuthProvider } from "./context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Dashboard from "./pages/Dashboard";
 
