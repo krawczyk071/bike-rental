@@ -14,7 +14,7 @@ const EditCard = ({ bike, handleChange, handleEdit }) => {
       </div>
 
       <div className="editcard__list">
-        <label htmlFor="price">Price</label>
+        {/* <label htmlFor="price">Price</label>
         <input
           className="ipt"
           type="text"
@@ -22,7 +22,7 @@ const EditCard = ({ bike, handleChange, handleEdit }) => {
           id="price"
           value={bike.price}
           onChange={(e) => handleChange(e, bike)}
-        />
+        /> */}
 
         <label htmlFor="pricecat">Price category</label>
         <div className="select">

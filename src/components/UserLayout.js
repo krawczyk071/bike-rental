@@ -14,7 +14,7 @@ const UserLayout = () => {
 
   return (
     <>
-      <div className="user">
+      <div className="user layout-lg">
         <nav className="user__nav">
           <NavLink className="user__nav__link" to="." end>
             login

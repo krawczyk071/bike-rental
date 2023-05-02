@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { fbLogin } from "../utils/firebase";
 import { useState } from "react";
-import UserStatus from "./UserStatus";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ user: "", pwd: "" });
-  const [alert, setAlert] = useState("");
-  const { currentUser, dispatch } = useContext(AuthContext);
+  const [alertmsg, setAlertmsg] = useState({ type: "", text: "" });
+  const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const formChange = (e) => {
@@ -27,30 +26,36 @@ const Login = () => {
         navigate("/dashboard");
       })
       .catch((err) => {
-        setAlert(err.message);
+        setAlertmsg({ type: "--danger", text: `${err.message}` });
         // console.log(err);
       });
   };
   return (
-    <div>
+    <div className="signup">
       <h1>Login</h1>
-      {alert && <div className="alert">{alert}</div>}
-      <form onSubmit={(e) => submitHandler(e)}>
+      <div className={`alert alert${alertmsg.type}`}>{alertmsg.text}</div>
+      <form onSubmit={(e) => submitHandler(e)} className="signup__form">
         <input
           type="text"
           name="user"
           value={formData.user}
           placeholder="username"
           onChange={formChange}
+          className="ipt"
+          required
         />
         <input
-          type="text"
+          type="password"
           name="pwd"
           value={formData.pwd}
-          placeholder="pass"
+          placeholder="password"
           onChange={formChange}
+          className="ipt"
+          required
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="btn btn__primary">
+          Login
+        </button>
       </form>
       {/* <UserStatus /> */}
     </div>
