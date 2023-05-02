@@ -1,7 +1,7 @@
 import React from "react";
-import { allFilter } from "../utils/data";
 import { decode } from "html-entities";
 import { formatPrice, starRating } from "../utils/helper";
+import { pricing } from "../utils/data2";
 
 const Bike = ({ bike: one }) => {
   // const one = allFilter.find((a) => a.tcin == id);
@@ -9,6 +9,10 @@ const Bike = ({ bike: one }) => {
   const [imgFirst, ...imgRest] = one.images;
   const tags = Object.entries(one.filter).map((a) => <span>{a[1]} </span>);
   //    Array.from(one.filter).map((a) => <span>{afterAll}</span>);
+  const fromPricecat = (cat) => {
+    return pricing.find((p) => p.type === cat).daily;
+  };
+
   return (
     <div className="bike">
       <h1 className="bike__title">{decode(one.title)}</h1>
@@ -24,7 +28,7 @@ const Bike = ({ bike: one }) => {
       </div>
 
       <div className="bike__info">
-        <h1>Price: {formatPrice(Number(one.price) * 100)}</h1>
+        <h1>Daily Price: {formatPrice(fromPricecat(one.pricecat || "b"))}</h1>
         <h2>
           Rating: {one.rating} ({one.rating_count}) {starRating(one.rating)}
         </h2>

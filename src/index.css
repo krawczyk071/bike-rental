@@ -384,6 +384,7 @@ body {
   flex-direction: column;
   /* align-items: flex-end; */
   justify-content: flex-end;
+  align-items: center;
   margin-left: 1rem;
   padding: 2rem;
 }
@@ -701,6 +702,7 @@ p {
   display: flex;
   border-bottom: 5px solid var(--accent);
   margin: 1rem 0;
+  height: 605px;
 }
 .bike__img img {
   display: block;
@@ -722,6 +724,7 @@ p {
 }
 .bike__bull {
   margin-bottom: 1rem;
+  padding: 0 1rem;
 }
 .bike__tags {
   margin-bottom: 1rem;
@@ -740,8 +743,8 @@ p {
   background-color: var(--accent);
   border: 2px solid #fff;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -750,12 +753,14 @@ p {
 }
 .details {
   flex: 1;
+  width: 100%;
 }
 .details__nav {
   text-align: center;
   margin-bottom: 1rem;
   background: var(--accent);
   padding: 0.5rem;
+  align-self: stretch;
 }
 .details__nav__link,
 .details__nav__link:visited,
@@ -859,9 +864,21 @@ p {
   align-items: center;
   justify-content: center;
 }
+.dashboard > h2 {
+  font-weight: bold;
+  align-self: flex-start;
+  margin-left: 2.2rem;
+}
+.dashboard .shadow-sm {
+  box-shadow: none;
+}
+.dashboard .rented__cards {
+  margin-bottom: 2rem;
+}
 .dashboard__cards {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
 .editcard {
   width: 700px;

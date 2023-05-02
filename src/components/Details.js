@@ -17,6 +17,10 @@ const Details = () => {
 
   const navigate = useNavigate();
   async function handleRent() {
+    if (!currentUser) {
+      alert("You need to login first");
+      navigate("/user");
+    }
     SetWait(true);
     const oldUser = await getOne("users", currentUser.uid);
     console.log(oldUser.bikes.length);
