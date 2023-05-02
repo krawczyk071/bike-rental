@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import { allFilter } from "../utils/data";
 import { getFire } from "../utils/firebase";
 import Loader from "./Loader";
 

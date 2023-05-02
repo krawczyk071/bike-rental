@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import UserStatus from "../components/UserStatus";
 import { AuthContext } from "../context/AuthContext";
 import { editBike, editUser, getFire, getOne } from "../utils/firebase";
 import EditCard from "../components/EditCard";

@@ -1,5 +1,5 @@
 import React from "react";
-import { convertUnicode, formatPrice } from "../utils/helper";
+import { formatPrice } from "../utils/helper";
 import { decode } from "html-entities";
 import { Link } from "react-router-dom";
 import { pricing } from "../utils/data2";
