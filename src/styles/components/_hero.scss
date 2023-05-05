@@ -1,0 +1,79 @@
+.hero {
+  display: flex;
+  /* background-image: url(./img/Car.png); */
+  background-position: top;
+  background-size: cover;
+  min-height: 400px;
+  &__text {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 1rem;
+    padding: 2rem;
+    span {
+      color: $accent;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__btn {
+    background: $primary;
+    width: 60px;
+  }
+  &__photo {
+    flex: 1 1 60%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    img {
+      width: 450px;
+      transform: scaleX(-1);
+      display: block;
+    }
+  }
+}
+
+.bg-wrapper {
+  position: relative;
+  transform: translateX(40px);
+  &:before {
+    content: "";
+    position: absolute;
+    background: #ff8f00;
+    border-radius: 25px;
+    top: 50px;
+    left: 53%;
+    right: 7%;
+    bottom: 0;
+    z-index: -1;
+    background-image: linear-gradient(225deg, #e84118 0%, #e84393 100%);
+    background-size: cover;
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+.calendar {
+  height: 140px;
+  &__form {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100px;
+    width: 85%;
+    padding: 1rem;
+    background: $secondary;
+    border-radius: $radius1;
+    .ipt {
+      width: 280px;
+    }
+  }
+}

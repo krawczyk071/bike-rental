@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.layout-lg {
+  margin: 0 auto;
+  max-width: 960px;
+}
+.shadow-sm {
+  box-shadow: 0 4px 0.5rem -0.125rem rgba(0, 0, 0, 0.1),
+    0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.06);
+}
+
+.shadow-lg {
+  box-shadow: 0 5px 20px 0 rgba(234, 32, 39, 0.3);
+}
