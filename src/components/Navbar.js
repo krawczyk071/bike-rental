@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const toggleBurger = () => {
+    setOpen((prev) => !prev);
+  };
   return (
     <div className="header">
-      <nav className="navbar layout-lg">
+      <nav className="navbar">
         <div className="navbar__logo">
           BikeRental <i className="fa-solid fa-bicycle"></i>
         </div>
-        <ul className="navbar__list">
+        <button class="nobtn burger__btn" onClick={toggleBurger}>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul className={`navbar__list ${open ? "navbar__list--open" : ""}`}>
           <li className="navbar__item hov-animate">
             <NavHashLink smooth to="/">
               Home

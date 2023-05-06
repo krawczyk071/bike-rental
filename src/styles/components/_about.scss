@@ -3,7 +3,7 @@
   flex-direction: column;
   text-align: center;
   margin: 2rem 0;
-  &_two {
+  &__two {
     display: flex;
     img {
       width: 100%;
@@ -17,8 +17,15 @@
     flex: 1 1 60%;
     padding: 2rem;
     h3 {
-      color: &accent;
+      color: $accent;
       margin-bottom: 0.5rem;
+    }
+  }
+}
+@media screen and (max-width: $break-sm) {
+  .about {
+    &__two {
+      flex-direction: column;
     }
   }
 }

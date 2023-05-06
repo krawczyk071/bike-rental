@@ -36,3 +36,12 @@
     border-radius: $radius1;
   }
 }
+
+@media screen and (max-width: $break-sm) {
+  .how {
+    &__three {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

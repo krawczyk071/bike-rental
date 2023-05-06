@@ -25,7 +25,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="calendar">
-        <div className="calendar__form shadow-sm">
+        <div className="calendar__form">
           <label htmlFor="name">Get 10% off by leaving yor name:</label>
           <input id="name" type="text" className="ipt" />
           <label htmlFor="email">and an e-mail:</label>

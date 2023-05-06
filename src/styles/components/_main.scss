@@ -13,6 +13,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 1rem;
 }
 
 h1 {
@@ -35,4 +37,17 @@ p {
 
 .btn__primary {
   background: $accent;
+}
+
+.layout-lg {
+  margin: 0 auto;
+  max-width: 960px;
+}
+.shadow-sm {
+  box-shadow: 0 4px 0.5rem -0.125rem rgba(0, 0, 0, 0.1),
+    0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.06);
+}
+
+.shadow-lg {
+  box-shadow: 0 5px 20px 0 rgba(234, 32, 39, 0.3);
 }

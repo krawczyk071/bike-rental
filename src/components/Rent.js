@@ -68,17 +68,6 @@ const Rent = () => {
             <Card item={a} />
           ))}
       </div>
-      {/* {types.map((t) => {
-        return (
-          <div className="rent__cards">
-            {allFilter
-              .filter((a) => a.filter.subtype.includes(t))
-              .map((a) => (
-                <Card item={a} />
-              ))}
-          </div>
-        );
-      })} */}
     </div>
   );
 };

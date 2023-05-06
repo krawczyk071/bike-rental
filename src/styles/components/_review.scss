@@ -31,3 +31,12 @@
     }
   }
 }
+
+@media screen and (max-width: $break-sm) {
+  .review {
+    &__three {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

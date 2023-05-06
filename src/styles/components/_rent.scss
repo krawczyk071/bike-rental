@@ -84,3 +84,20 @@
     }
   }
 }
+
+@media screen and (max-width: $break-sm) {
+  .rent {
+    &__filter,
+    h1,
+    h3 {
+      padding: 0 1rem;
+    }
+    &__cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__card {
+      padding: 0.7rem;
+      margin: 0;
+    }
+  }
+}
