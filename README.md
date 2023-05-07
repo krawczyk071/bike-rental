@@ -2,7 +2,7 @@
 
 Rental website with user authentication using Firebase. Admin users can manage inventory. React Router applied with features like protected routes, shared navigation with routing outlets, useLocation hook. State managed using reducers.
 
-### [Live Demo](https://bikerentalproject.netlify.app/)
+### [Live Demo](https://bikerentalproject.netlify.app/) :point_left:
 
 ## Used:
 
