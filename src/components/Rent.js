@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { getFire } from "../utils/firebase";
 import Loader from "./Loader";
+import Alert from "./Alert";
 
 const types1 = [
   { value: "", display: "All" },
@@ -33,14 +34,27 @@ const Rent = () => {
     });
     setFilter(type);
   }
-  const [allBikes, SetAllBikes] = useState({ data: [], loading: true });
+  const [allBikes, SetAllBikes] = useState({
+    data: [],
+    loading: true,
+    error: null,
+  });
 
   useEffect(() => {
-    getFire().then((data) => SetAllBikes({ data, loading: false }));
+    getFire()
+      .then((data) => SetAllBikes({ data, loading: false, error: null }))
+      .catch((err) => {
+        console.log(err);
+        SetAllBikes((prev) => ({ ...prev, error: true }));
+      });
   }, []);
+
   if (allBikes.loading) {
     return <Loader />;
+  } else if (allBikes.error) {
+    return <Alert msg={"Sorry DB is offline"} />;
   }
+
   return (
     <div className="rent" id="ride">
       <h3>Experience the city on two wheels with our bike rentals.</h3>

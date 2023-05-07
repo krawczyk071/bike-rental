@@ -16,7 +16,10 @@ const Logout = ({ admin }) => {
           state: { msg: `Succesfully sign out` },
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Sorry cant logout!");
+      });
   };
   // console.log(currentUser);
   return (

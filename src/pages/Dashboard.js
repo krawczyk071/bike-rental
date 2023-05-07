@@ -5,23 +5,40 @@ import EditCard from "../components/EditCard";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
 import Logout from "../components/Logout";
+import Alert from "../components/Alert";
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
   const uid = currentUser.uid;
-  const [userData, setUserData] = useState({ data: [], loading: true });
-  const [allBikes, SetAllBikes] = useState({ data: [], loading: true });
+  const [userData, setUserData] = useState({
+    data: [],
+    loading: true,
+    error: null,
+  });
+  const [allBikes, SetAllBikes] = useState({
+    data: [],
+    loading: true,
+    error: null,
+  });
   const [wait, SetWait] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getOne("users", uid).then((data) =>
-      setUserData({ data: data, loading: false })
-    );
+    getOne("users", uid)
+      .then((data) => setUserData({ data: data, loading: false }))
+      .catch((err) => {
+        console.log(err);
+        setUserData((prev) => ({ ...prev, error: true }));
+      });
   }, [uid]);
 
   useEffect(() => {
-    getFire().then((data) => SetAllBikes({ data, loading: false }));
+    getFire()
+      .then((data) => SetAllBikes({ data, loading: false }))
+      .catch((err) => {
+        console.log(err);
+        SetAllBikes((prev) => ({ ...prev, error: true }));
+      });
   }, []);
 
   // const [edit, setEdit] = useState("");
@@ -45,19 +62,29 @@ const Dashboard = () => {
   }
   async function handleReturn(bike) {
     SetWait(true);
-    const oldUser = await getOne("users", currentUser.uid);
+    try {
+      const oldUser = await getOne("users", currentUser.uid);
 
-    const newBike = { ...bike, status: "ready" };
-    const newUser = {
-      ...oldUser,
-      bikes: oldUser.bikes.filter((b) => b.id !== bike.id),
-    };
-    await editBike(newBike);
-    await editUser(newUser);
-    navigate("/order", {
-      state: { msg: `Succesfully renturned bike : ${newBike.id}` },
-    });
+      const newBike = { ...bike, status: "ready" };
+      const newUser = {
+        ...oldUser,
+        bikes: oldUser.bikes.filter((b) => b.id !== bike.id),
+      };
+      await editBike(newBike);
+      await editUser(newUser);
+      navigate("/order", {
+        state: { msg: `Succesfully renturned bike : ${newBike.id}` },
+      });
+    } catch (err) {
+      console.log(err);
+      alert("Sorry can not return right now.");
+    }
   }
+
+  if (allBikes.error || userData.error) {
+    return <Alert msg={"Sorry DB is offline"} />;
+  }
+
   return (
     <div className="dashboard layout-lg">
       <Logout admin={userData.data.admin} />

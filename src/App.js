@@ -12,6 +12,7 @@ import Pricing from "./components/Pricing";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Dashboard from "./pages/Dashboard";
+import { AutoTop } from "./components/AutoTop";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -25,24 +26,26 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route exact path="/" element={<Homepage />} />
-            <Route path="/bike/:id" element={<Details />}>
-              <Route index element={<More />} />
-              <Route path="moreinfo" element={<MorePhotos />} />
-              <Route path="price" element={<Pricing />} />
+            <Route element={<AutoTop />}>
+              <Route path="/bike/:id" element={<Details />}>
+                <Route index element={<More />} />
+                <Route path="moreinfo" element={<MorePhotos />} />
+                <Route path="price" element={<Pricing />} />
+              </Route>
+              <Route path="/order" element={<Order />} />
+              <Route path="user" element={<UserLayout />}>
+                <Route index element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+              </Route>
+              <Route
+                path="dashboard"
+                element={
+                  <RequireAuth>
+                    <Dashboard />
+                  </RequireAuth>
+                }
+              />
             </Route>
-            <Route path="/order" element={<Order />} />
-            <Route path="user" element={<UserLayout />}>
-              <Route index element={<Login />} />
-              <Route path="signup" element={<Signup />} />
-            </Route>
-            <Route
-              path="dashboard"
-              element={
-                <RequireAuth>
-                  <Dashboard />
-                </RequireAuth>
-              }
-            />
           </Route>
         </Routes>
       </BrowserRouter>
