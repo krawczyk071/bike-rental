@@ -24,3 +24,17 @@ Rental website with user authentication using Firebase. Admin users can manage i
 - admin panel with inventory management
 - filtering bikes by type
 - router nested routes
+
+## Tools:
+
+- Visual Studio Code
+- Linux terminal
+- Git and GitHub
+- Webpack Module Bundler
+- ESLint + Airbnb JavaScript Style Guide
+- Prettier Code Formatter
+
+## Third party code:
+
+- [Google Fonts](https://fonts.google.com/)
+- [Font Awesome Icons](https://fontawesome.com/)
