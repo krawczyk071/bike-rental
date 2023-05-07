@@ -96,7 +96,7 @@ const Dashboard = () => {
             <div className="rented__cards">
               {userData.data.bikes.map((b) => {
                 return (
-                  <div className="rented__card">
+                  <div className="rented__card" key={b.id}>
                     <Card item={b} />
                     <button className="btn" onClick={() => handleReturn(b)}>
                       {wait ? "Wait.." : "Return"}
